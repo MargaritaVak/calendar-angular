@@ -1,0 +1,221 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+.block-2{
+  margin-top:120px;
+}
+
+.calendar-header {
+  background-color: #f3f2f2;
+  height: 110px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header-top {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  margin-left: 50px;
+}
+
+.header-bottom {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+
+.button {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+  background-color: #006ace;
+  color: white;
+  border-radius: 0;
+  font-family: TTCommons,sans-serif ;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #ccc ;
+  padding: 5px;
+  border-radius: 2px;
+  width: 200px;
+}
+
+.search-input::placeholder,
+.search-input::-webkit-input-placeholder {
+  color: #c0bfbf;
+  font-family: TTCommons,sans-serif;
+  font-size: 13px;
+}
+
+.search-icon {
+  color: #b7b5b5;
+  width: 27px;
+}
+
+.search-icon mat-icon {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+
+.calendar {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: TTCommons,sans-serif;
+  font-size: 14px;
+  color: #a4a0a0;
+}
+
+h2 {
+  font-size: 10px;
+  margin-bottom: 10px;
+}
+.day-of-week {
+  text-transform: capitalize;
+
+  padding-left: 7%;
+}
+.header-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.day {
+  width: 140px;
+  height: 130px;
+  border: 1px solid #ccc;
+  padding-top: 7%;
+}
+.day:hover {
+  background-color: #eaf6ff;
+}
+
+.day.active {
+  background-color: #b3d9ff;
+}
+
+.day.has-title-or-event {
+  background-color: #c0eeff;
+}
+
+.date {
+  font-family: TTCommons, sans-serif;
+  padding-left: 7%;
+}
+
+.title {
+  margin-top: 5px;
+  font-size: 14px;
+  font-family: TTCommons, sans-serif;
+  font-weight: bold;
+  color: black;
+  padding-left: 7%;
+}
+
+.event {
+  font-size: 14px;
+  font-family: TTCommons, sans-serif;
+  color: black;
+  padding-left: 7%;
+}
+
+@media screen and (max-width: 480px) {
+  .day {
+    padding: 5px;
+    font-size: 12px;
+  }
+
+  .date {
+    font-size: 14px;
+  }
+
+  .title,
+  .event {
+    font-size: 12px;
+  }
+}
+
+.calendar-controls {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-left: 40px;
+}
+
+.month {
+  font-family: TTCommons,sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+.button_month_today{
+  font-family: TTCommons,sans-serif;
+  font-size: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-weight: normal;
+}
+.button_month {
+  background-color: #fff;
+  border: 2px solid #ccc;
+  padding: 0;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+}
+
+.button_month mat-icon {
+  margin-right: 2px;
+  padding: 0;
+}
+
+.calendar-items-wrapper {
+  margin-left: -10px;
+  margin-right: -10px;
+  overflow-y: auto;
+  max-height: calc(100% - 20px);
+}
+
+.day.today {
+  font-weight: bold;
+  color: black;
+  background-color: #f3f3f3;
+}
+
+
