@@ -7,7 +7,9 @@ import localeRu from '@angular/common/locales/ru';
 import { LOCALE_ID } from '@angular/core';
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
-
+import {MatInputModule} from "@angular/material/input";
+import {FormsModule} from "@angular/forms";
+import { PopoverModule } from 'ngx-bootstrap/popover';
 registerLocaleData(localeRu);
 
 // @ts-ignore
@@ -21,7 +23,10 @@ registerLocaleData(localeRu);
     BrowserModule,
     CommonModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatInputModule,
+    FormsModule,
+    PopoverModule
   ],
   providers: [{provide: LOCALE_ID, useValue: 'ru'}]
 })

@@ -1,16 +1,38 @@
 <div class="calendar-header">
   <div class="header-top">
-    <button mat-button class="button">Добавить</button>
-    <button mat-button class="button">Обновить</button>
+    <button mat-button class="button" type="button" (click)="togglePopover()">Добавить</button>
+    <div class="popover" *ngIf="showPopover">
+      <div class="popover-header">
+        <button class="close-icon" (click)="togglePopover()">&times;</button>
+      </div>
+      <div class="popover-body">
+        <div class="input-wrapper">
+          <input type="date"  placeholder="" [(ngModel)]="inputValue" class="form-control">
+        </div>
+        <div class="input-wrapper">
+          <input type="text"  placeholder="День рождение" [(ngModel)]="inputValue2" class="form-control">
+        </div>
+        <div class="input-wrapper">
+          <input type="text"  placeholder="Вася" [(ngModel)]="inputValue3" class="form-control">
+        </div>
+        <div class="button-wrapper">
+          <button (click)="saveInput()">Создать</button>
+        </div>
+      </div>
+    </div>
+    <button mat-button class="button" (click)="refreshPage()">Обновить</button>
   </div>
+
+
   <div class="header-bottom">
-    <button mat-icon-button class="search-icon">
+    <button mat-icon-button class="search-icon" (click)="searchEvents(searchValue)">
       <mat-icon>search</mat-icon>
     </button>
     <div class="search-container">
-      <input type="text" class="search-input" placeholder="Событие, дата или участник">
+      <input type="text" class="search-input" placeholder="Событие, дата или участник" [(ngModel)]="searchValue">
     </div>
   </div>
+
 </div>
 <div class="block-2">
     <div class="calendar-controls">
@@ -23,16 +45,61 @@
     </div>
     <div class="calendar">
       <div class="header-row">
-        <div class="day" *ngFor="let day of calendar.slice(0, 7)">
+        <div class="day" *ngFor="let day of calendar.slice(0, 7)" (click)="openEventForm(day)">
           <span class="day-of-week">{{ day.date | date: 'EEEE' }}</span>, {{ day.date | date: 'd' }}
         </div>
       </div>
       <div class="week" *ngFor="let week of calendar.slice(7) | chunk: 7">
-        <div class="day" *ngFor="let day of week" [class.today]="day.isToday" [class.has-title-or-event]="day.title || day.event">
+        <div class="day" *ngFor="let day of week" [class.today]="day.isToday" [class.has-title-or-event]="day.title || day.event" (click)="openEventForm(day)" >
           <div class="date">{{ day.date | date: 'd' }}</div>
           <div class="title" *ngIf="day.title">{{ day.title }}</div>
           <div class="event" *ngIf="day.event">{{ day.event }}</div>
         </div>
       </div>
+      <div class="popover-2" *ngIf="showEventForm">
+        <div class="popover-header">
+          <button class="close-icon" (click)="togglePopove2()">&times;</button>
+        </div>
+        <div class="popover-body">
+          <div *ngIf="selectedDay && (selectedDay.title || selectedDay.event)">
+            <div class="input-wrapper">
+              <input type="text" [(ngModel)]="selectedDay.title" class="form-control">
+            </div>
+            <div class="input-wrapper">
+              <input type="date" [(ngModel)]="inputValue" class="form-control" disabled>
+            </div>
+            <div class="input-wrapper">
+              <input type="text" [(ngModel)]="selectedDay.event" class="form-control">
+            </div>
+            <div class="textarea-wrapper">
+              <textarea  placeholder="Описание"[(ngModel)]="selectedDay.description" class="form-control"></textarea>
+            </div>
+            <div class="button-wrapper">
+              <button id="button_day"(click)="updateEventDataFromLocalStorage(inputValue, selectedDay.title, selectedDay.event, selectedDay.description)">Готово</button>
+              <button (click)="deleteEvent(inputValue)">Удалить</button>
+            </div>
+          </div>
+          <div *ngIf="!selectedDay || (!selectedDay.title && !selectedDay.event)">
+            <div class="input-wrapper">
+              <input type="text" placeholder="Событие"  [(ngModel)]="inputValue2" class="form-control">
+            </div>
+            <div class="input-wrapper">
+              <input type="date" [(ngModel)]="inputValue" class="form-control">
+            </div>
+            <div class="input-wrapper">
+              <input type="text"  placeholder="Участники"  [(ngModel)]="inputValue3" class="form-control">
+            </div>
+            <div class="textarea-wrapper">
+              <textarea placeholder="Описание" [(ngModel)]="inputValue4" class="form-control"></textarea>
+            </div>
+
+            <div class="button-wrapper">
+              <button (click)="saveEvent()">Готово</button>
+            <button (click)="deleteEvent(inputValue)">Удалить</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 </div>
+

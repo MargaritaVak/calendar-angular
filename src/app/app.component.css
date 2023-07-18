@@ -3,6 +3,91 @@
 .block-2{
   margin-top:120px;
 }
+#control{
+  position: relative;
+}
+#popup{
+  position: absolute;
+  top: 30px;
+  left: 10px;
+}
+.popover {
+  position: absolute;
+  top: 100%;
+  left: 3%;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 0;
+}
+
+.popover-header {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+}
+
+.close-icon {
+  border: none;
+  background: none;
+  font-size: 15px;
+  color: #999;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 0;
+}
+
+.popover-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  padding: 5px;
+  border-radius: 2px;
+  width: 310px;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+.popover input {
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.popover input::placeholder,
+.popover input::-webkit-input-placeholder {
+  color: #c0bfbf;
+  font-family: TTCommons,sans-serif;
+  font-size: 13px;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 10px;
+}
+
+
+
+.popover button {
+  margin-top: 3px;
+}
 
 .calendar-header {
   background-color: #f3f2f2;
@@ -216,6 +301,91 @@ h2 {
   font-weight: bold;
   color: black;
   background-color: #f3f3f3;
+}
+
+
+.calendar {
+  position: relative;
+}
+
+.popover-2 {
+  position: absolute;
+  top: 0;
+  left: calc(100% + 10px);
+  z-index: 2;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 0;
+}
+
+.popover-2 .popover-header {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+}
+
+.popover-2 .popover-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.popover-2 .button-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 10px;
+}
+
+.popover-2 .button-wrapper button {
+  margin-top: 3px;
+}
+
+.popover-2 .input-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  padding: 5px;
+  border-radius: 2px;
+  width: 310px;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+.popover-2 input {
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.textarea-wrapper{
+  display: flex;
+  align-items: flex-start;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  padding: 5px;
+  border-radius: 2px;
+  width: 310px;
+  height: 200px;
+  margin: 30px 20px 10px 10px;
+}
+.popover-2 textarea {
+  border: none;
+  outline: none;
+  width: 100%;
+}
+#button_day{
+  margin-right: 5px;
 }
 
 
